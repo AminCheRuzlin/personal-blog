@@ -1,0 +1,214 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header & Footer */
+header {
+  background-color: #007acc;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Main Content */
+main {
+  padding: 20px;
+}
+
+.portfolio-section {
+  background: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* Logout Button */
+.logout-button {
+  float: right;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  margin-top: -50px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #cc0000;
+}
+
+/* Login Styles */
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-container label {
+  display: block;
+  margin-top: 10px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-container button {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #005f99;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #007acc;
+}
+
+.project-item {
+  margin-bottom: 20px;
+}
+
+.project-item button {
+  margin-left: 10px;
+  padding: 4px 10px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.project-item button:hover {
+  background-color: #005f99;
+}
+
+.project-preview {
+  display: none;
+  margin-top: 10px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.project-images {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.project-images img {
+  width: 100%;
+  max-width: 48%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.project-images img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* Dark Mode Button */
+#toggle-dark {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 8px 14px;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#toggle-dark:hover {
+  background-color: #333;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode .portfolio-section {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+body.dark-mode .project-item button {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-mode .project-item button:hover {
+  background-color: #555;
+}
+
+body.dark-mode #toggle-dark {
+  background-color: #f1f1f1;
+  color: #111;
+}
+
+

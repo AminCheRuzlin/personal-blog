@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My E-Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button id="toggle-dark" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  <header>
+    <h1>My E-Portfolio</h1>
+    <p>A showcase of my work, skills, and achievements</p>
+  </header>
+
+  <main>
+    <section class="portfolio-section">
+      <h2>About Me</h2>
+      <div class="about-container">
+        <img src="D:\Download\DSC_3026.JPG" alt="My Photo" class="profile-photo" />
+        <p>As a final-year student currently completing my final year project, I am seeking an internship opportunity where I can apply and further develop my skills in 3D design. I have a strong interest in the 3D creative sector, particularly using tools like Blender and Autodesk Maya. With a passion for digital artistry, I am eager to contribute to a dynamic team while gaining hands-on experience in real-world projects. I am motivated, detail-oriented, and committed to learning and growing in a professional environment.</p>
+      </div>
+    </section>
+
+    <section class="portfolio-section">
+  <h2>Projects</h2>
+
+  <!-- Project 1 -->
+  <div class="project-item">
+    <p>
+      <strong>Traditional Malay Kitchen Tools in 3D:</strong> Traditional Malay kitchen tools reflect the resourcefulness and ingenuity of the Malay community in food preparation. These tools, often crafted from natural materials like wood, stone, and coconut shells, were essential in daily cooking practices before modern kitchen appliances became widespread. 
+      <button onclick="toggleProject('project1')">View</button>
+    </p>
+    <div id="project1" class="project-preview">
+      <div class="project-images">
+        <img src="D:\Desktop\KELAS\SEM 3\3D\FINAL ASSESSMENT\Overall 2.png" alt="Blog Screenshot 1">
+        <img src="D:\Desktop\KELAS\SEM 3\3D\FINAL ASSESSMENT\Overall.jpg" alt="Blog Screenshot 2">
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="project-item">
+    <p>
+      <strong>VR SportHall:</strong> FutureVR: SportHall is a virtual reality project designed to transform how people experience exhibits by immersing users in Malaysia's rich sports history. Aimed at youth aged 16 to 25, it promotes cultural heritage through interactive 3D displays, storytelling, and immersive visuals. Featuring key sports like badminton, football, athletics, and sepak takraw, the app runs on Android smartphones with VR headsets. Built in Unity, it offers an engaging, educational platform that celebrates legendary athletes and historic moments in a futuristic setting. 
+      <button onclick="toggleProject('project2')">View</button>
+    </p>
+    <div id="project2" class="project-preview">
+      <div class="project-images">
+        <img src="D:\Download\Screenshot 2025-06-15 234332.png" alt="Blood Cells App 1">
+        <img src="D:\Download\Screenshot 2025-06-15 221117.png" alt="Blood Cells App 2">
+      </div>
+    </div>
+  </div>
+
+   <div class="project-item">
+    <p>
+      <strong>Boss Clinic Management:</strong> This is a web-based clinic management system designed to streamline administrative tasks for a clinic
+      <button onclick="toggleProject('project3')">View</button>
+    </p>
+    <div id="project3" class="project-preview">
+      <div class="project-images">
+        <img src="D:\Download\Screenshot 2025-06-19 015100.png" alt="AR Planet 1">
+        <img src="D:\Download\Screenshot 2025-06-19 015457.png" alt="AR Planet 2">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <section class="portfolio-section">
+      <h2>Technical Skills</h2>
+      <ul>
+        <li>HTML, CSS, JavaScript</li><br>
+        <li>Game Engine (Unity)</li><br>
+        <li>3D Modelling (Blender)</li>
+      </ul>
+    </section>
+
+    <section class="portfolio-section">
+      <h2>Contact</h2>
+      <p>Email: amincheruzlin@gmail.com</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 My E-Portfolio. All rights reserved.</p>
+  </footer>
+</body>
+<script src="script.js"></script>
+</html>
