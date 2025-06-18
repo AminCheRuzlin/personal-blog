@@ -1,0 +1,113 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #007acc;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  padding: 20px;
+}
+
+article {
+  background: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005f99;
+}
+
+footer {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-container label {
+  display: block;
+  margin-top: 10px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-container button {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #005f99;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.logout-button {
+  float: right;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  margin-top: -50px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #cc0000;
+}
