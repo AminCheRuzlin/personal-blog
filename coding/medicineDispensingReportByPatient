@@ -1,0 +1,179 @@
+<%@ page import="java.sql.*, java.util.*" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Dispensing Report by Patient</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        /* Your CSS styling here */
+        .search-form, .result-table {
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn-submit {
+            padding: 10px 20px;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            background-color: #007bff;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+        .result-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .result-table th, .result-table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .back-button {
+            margin-top: 20px;
+        }
+        .btn-back {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Medicine Dispensing Report by Patient</h1>
+        <form method="get" action="medicineDispensingReportByPatient.jsp" class="search-form">
+            <div class="form-group">
+                <label for="patient_IC">Enter Patient IC:</label>
+                <input type="text" id="patient_IC" name="patient_IC" required>
+            </div>
+            <button type="submit" class="btn-submit">Search</button>
+        </form>
+        <%
+            String patientIC = request.getParameter("patient_IC");
+            if (patientIC != null && !patientIC.isEmpty()) {
+                Connection connection = null;
+                PreparedStatement stmt = null;
+                ResultSet resultSet = null;
+                String url = "jdbc:mysql://localhost/sql_aminruzlin";
+                String username = "sql_aminruzlin";
+                String passwordMySQL = "3xGtKK7bia7j8XNh";
+
+                try {
+                    // Connect to the database
+                    Class.forName("com.mysql.jdbc.Driver").newInstance();
+                    connection = DriverManager.getConnection(url, username, passwordMySQL);
+
+                    // Retrieve treatment details by patient IC
+                    String query = "SELECT t.treatment_IdTreatment, t.treatment_Date, t.treatment_Time, t.treatment_EmployeeIC, t.treatment_Illness " +
+                                   "FROM Treatment t WHERE t.treatment_PatientIC = ?";
+                    stmt = connection.prepareStatement(query);
+                    stmt.setString(1, patientIC);
+                    resultSet = stmt.executeQuery();
+
+                    if (resultSet.next()) {
+                        out.println("<div class='result-table'>");
+                        out.println("<h2>Treatment Details for Patient IC: " + patientIC + "</h2>");
+                        out.println("<table>");
+                        out.println("<tr><th>Treatment ID</th><th>Treatment Date</th><th>Treatment Time</th><th>Doctor IC</th><th>Illness</th></tr>");
+                        do {
+                            int treatmentId = resultSet.getInt("t.treatment_IdTreatment");
+                            String treatmentDate = resultSet.getString("t.treatment_Date");
+                            String treatmentTime = resultSet.getString("t.treatment_Time");
+                            String doctorIC = resultSet.getString("t.treatment_EmployeeIC");
+                            String illness = resultSet.getString("t.treatment_Illness");
+
+                            out.println("<tr>");
+                            out.println("<td>" + treatmentId + "</td>");
+                            out.println("<td>" + treatmentDate + "</td>");
+                            out.println("<td>" + treatmentTime + "</td>");
+                            out.println("<td>" + doctorIC + "</td>");
+                            out.println("<td>" + illness + "</td>");
+                            out.println("</tr>");
+                        } while (resultSet.next());
+                        out.println("</table>");
+                        out.println("</div>");
+
+                        // Retrieve medicine dispensing details using treatment ID
+                        query = "SELECT d.dispenseMedication_IdTreatment, d.dispenseMedication_medicationCode, d.dispenseMedication_UsageMethod, " +
+                                "d.dispenseMedication_Quantity, d.dispenseMedication_TotalPrice, m.medication_Name " +
+                                "FROM DispenseMedication d JOIN Medication m ON d.dispenseMedication_medicationCode = m.medication_Code " +
+                                "WHERE d.dispenseMedication_IdTreatment = ?";
+                        stmt = connection.prepareStatement(query);
+                        stmt.setInt(1, resultSet.getInt("treatment_IdTreatment"));
+                        resultSet = stmt.executeQuery();
+
+                        if (resultSet.next()) {
+                            out.println("<div class='result-table'>");
+                            out.println("<h2>Dispensed Medications for Treatment ID: " + resultSet.getInt("dispenseMedication_IdTreatment") + "</h2>");
+                            out.println("<table>");
+                            out.println("<tr><th>Medication Code</th><th>Medication Name</th><th>Usage Method</th><th>Quantity</th><th>Total Price</th></tr>");
+                            do {
+                                String medicationCode = resultSet.getString("dispenseMedication_medicationCode");
+                                String medicationName = resultSet.getString("medication_Name");
+                                String usageMethod = resultSet.getString("dispenseMedication_UsageMethod");
+                                int quantity = resultSet.getInt("dispenseMedication_Quantity");
+                                double totalPrice = resultSet.getDouble("dispenseMedication_TotalPrice");
+
+                                out.println("<tr>");
+                                out.println("<td>" + medicationCode + "</td>");
+                                out.println("<td>" + medicationName + "</td>");
+                                out.println("<td>" + usageMethod + "</td>");
+                                out.println("<td>" + quantity + "</td>");
+                                out.println("<td>" + totalPrice + "</td>");
+                                out.println("</tr>");
+                            } while (resultSet.next());
+                            out.println("</table>");
+                            out.println("</div>");
+                        } else {
+                            out.println("<p>No dispensed medications found for the provided patient IC.</p>");
+                        }
+                    } else {
+                        out.println("<p>No treatments found for the provided patient IC.</p>");
+                    }
+                } catch (SQLException e) {
+                    out.println("<p>Error: " + e.getMessage() + "</p>");
+                } catch (ClassNotFoundException e) {
+                    out.println("<p>Error: " + e.getMessage() + "</p>");
+                } catch (Exception e) {
+                    out.println("<p>Error: " + e.getMessage() + "</p>");
+                } finally {
+                    if (resultSet != null) try { resultSet.close(); } catch (SQLException ignore) {}
+                    if (stmt != null) try { stmt.close(); } catch (SQLException ignore) {}
+                    if (connection != null) try { connection.close(); } catch (SQLException ignore) {}
+                }
+            }
+        %>
+        <div class="back-button">
+            <a href="doc.jsp" class="btn-back">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
