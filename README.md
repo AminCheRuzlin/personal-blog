@@ -1,7 +1,7 @@
 # personal-blog
 A simple personal blog page using HTML, CSS, and JS
 
-##Check On Repository/Coding/for the clinic File
+##Check On Repository/Coding/ for the clinic file##
 
 🚀 How to Run This Project
 
