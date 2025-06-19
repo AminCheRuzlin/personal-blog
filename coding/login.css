@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    max-width: 1800px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+body {
+    position: relative;
+    background-image: url('background.jpg'); /* Adjust the path as needed */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; /* Added for better background positioning */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    height: 100%; /* Ensure the body takes the full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+a {
+    text-decoration: none;
+    align-items: center;
+    color: #007bff;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+.nav-items {
+    position: absolute;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    top: -80px;
+    left: 380px;
+    display: flex;
+    gap: 2rem;
+    padding: 0 4em;
+}
+
+.nav-items div {
+    cursor: pointer;
+}
+
+.nav-items div a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-items div a:hover {
+    color: rgb(213, 25, 19);
+}
+
+.form-maker {
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 30%;
+    width: 450px;
+    background: #333333;
+    opacity: 1.0;
+    border-radius: 5px;
+}
+
+.label {
+    padding: 20px 130px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+.label2 {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: red;
+}
+
+.login-form {
+    padding: 20px 40px;
+}
+
+.signup-form {
+    padding: 20px 40px;
+}
+
+.forget-form {
+    padding: 20px 40px;
+}
+
+.login-form .font {
+    font-size: 18px;
+    color: white;
+    margin: 5px 0;
+}
+
+.signup-form .font {
+    font-size: 18px;
+    color: white;
+    margin: 1px 0;
+}
+
+.forget-form .font {
+    font-size: 18px;
+    color: white;
+    margin: 5px 0;
+}
+
+.login-form input {
+    height: 30px;
+    width: 350px;
+    padding: 0 5px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid silver;
+}
+
+.forget-form input {
+    height: 30px;
+    width: 350px;
+    padding: 0 5px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid silver;
+}
+
+.signup-form input {
+    height: 25px;
+    width: 350px;
+    padding: 0 5px;
+    font-size: 15px;
+    outline: none;
+    border: 1px solid silver;
+}
+
+.signup-form #gender {
+    height: 23px;
+    width: 350px;
+    padding: 0 5px;
+    font-size: 15px;
+    outline: none;
+    border: 1px solid silver;
+}
+
+.login-form .font2 {
+    margin-top: 30px;
+}
+
+.login-form .sub {
+    margin: 45px 0 30px 0;
+    height: 45px;
+    width: 365px;
+    font-size: 20px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    background: #1A237E;
+    border-radius: 3px;
+    border: 1px solid #3949AB;
+    transition: .10s;
+}
+
+.login-form .sub:hover {
+    background: brown;
+}
+
+.forget-form .sub {
+    margin: 25px 0 10px 0;
+    height: 40px;
+    width: 365px;
+    font-size: 20px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    background: #1A237E;
+    border-radius: 3px;
+    border: 1px solid #3949AB;
+    transition: .10s;
+}
+
+.login-form .sub:hover {
+    background: brown;
+}
+
+.signup-form .sub {
+    margin: 15px 0 5px 0;
+    height: 35px;
+    width: 250px;
+    font-size: 20px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    background: #1A237E;
+    border-radius: 3px;
+    border: 1px solid #3949AB;
+    transition: .10s;
+}
+
+.signup-form .sub:hover {
+    background: brown;
+}
+
+.login-form #name-error,
+.login-form #pass-error {
+    margin-top: 5px;
+    width: 345px;
+    font-size: 18px;
+    color: #C62828;
+    background-color: rgba(255, 0, 0, 0.1);
+    text-align: center;
+    padding: 5px 8px;
+    border-radius: 3px;
+    border: 1px solid #EF9A9A;
+    display: none;
+}
+
+.forget-form #roll-error,
+.forget-form #name-error,
+.forget-form #pass-error {
+    margin-top: 5px;
+    width: 345px;
+    font-size: 13px;
+    color: #C62828;
+    background-color: rgba(255, 0, 0, 0.1);
+    text-align: center;
+    padding: 5px 8px;
+    border-radius: 3px;
+    border: 1px solid #EF9A9A;
+    opacity: 0;
+}
+
+.signup-form #roll-error,
+.signup-form #ename-error,
+.signup-form #gender-error,
+.signup-form #email-error,
+.signup-form #num-error,
+.signup-form #epass-error {
+    margin-top: 1px;
+    width: 345px;
+    font-size: 12px;
+    color: #C62828;
+    background-color: rgba(255, 0, 0, 0.1);
+    text-align: center;
+    padding: 3px 6px;
+    border-radius: 3px;
+    border: 1px solid #EF9A9A;
+    opacity: 0;
+}
+
+back-button a {
+    margin: 15px 0 5px 0;
+    height: 35px;
+    width: 365px;
+    font-size: 20px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    background: #1A237E;
+    border-radius: 3px;
+    border: 1px solid #3949AB;
+    transition: .10s;
+}
